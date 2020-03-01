@@ -63,7 +63,7 @@ public class Array<E> {
     // 获取index索引位置的元素
     public E get(int index) {
         if (index < 0 || index >= size)
-            throw new IllegalArgumentException("Get failed. Index is illegal.");
+            throw new IllegalArgumentException("Get failed. Index is illegal : " + index);
         return data[index];
     }
 
@@ -151,5 +151,11 @@ public class Array<E> {
         for (int i = 0; i < size; i++)
             newData[i] = data[i];
         data = newData;
+    }
+
+    public void swap(int left, int right) {
+        E e = data[right];
+        data[right] = data[left];
+        data[left] = e;
     }
 }
