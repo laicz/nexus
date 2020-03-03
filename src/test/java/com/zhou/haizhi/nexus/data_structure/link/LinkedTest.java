@@ -15,26 +15,9 @@ public class LinkedTest {
         LinkNode<Integer> linkNode3 = new LinkNode<>(3, linkNode2);
         LinkNode<Integer> linkNode4 = new LinkNode<>(2, linkNode3);
         LinkNode<Integer> linkNode5 = new LinkNode<>(1, linkNode4);
-//        System.out.println(linkNode5);
-//        System.out.println(linkNode1);
 
         LinkNode<Integer> newLink = reversal1(linkNode5);
         System.out.println(newLink);
-//        System.out.println(linkNode5);
-//        System.out.println(linkNode1);
-//        System.out.println(newLink);
-
-        //循环实现反转
-//        LinkNode<Integer> cur = linkNode5;
-//        LinkNode<Integer> prev = null;
-//        while (cur != null) {
-//            LinkNode<Integer> next = cur.next;
-//            cur.next = prev;
-//            prev = cur;
-//            cur = next;
-//        }
-//        System.out.println(linkNode5);
-//        System.out.println(linkNode1);
     }
 
     /**
