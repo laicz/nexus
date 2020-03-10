@@ -32,4 +32,27 @@ public class SelectSort {
             values[i] = min;
         }
     }
+
+
+    /**
+     * 注意，每次遍历的时候，外层遍历的数组开始是作为最小值的
+     *
+     * @param values
+     */
+    public void sort1(int[] values) {
+        int index = 0;
+        for (int i = 0; i < values.length; i++) {
+            int min = values[0];
+            for (int j = i + 1; j < values.length; j++) {
+                if (min > values[j]) {
+                    index = j;
+                    min = values[j];
+                }
+            }
+            values[index] = values[i];
+            values[i] = min;
+        }
+    }
+
+
 }
