@@ -16,13 +16,13 @@ import java.util.Arrays;
 public class MergeSort {
 
     public static void main(String[] args) {
-        int[] values = SortTestHelper.generateRandomArray(20000000, 2, 700000000);
+        int[] values = SortTestHelper.generateRandomArray(2000, 2, 1000);
 //        System.out.println(Arrays.toString(values));
         MergeSort mergeSort = new MergeSort();
         long st = System.currentTimeMillis();
         mergeSort.sort(values);
         System.out.println(System.currentTimeMillis() - st);
-//        System.out.println(Arrays.toString(values));
+        System.out.println(Arrays.toString(values));
     }
 
     private void sort(int[] values) {
@@ -36,7 +36,50 @@ public class MergeSort {
         int mid = l + (r - l) / 2;
         sort(values, l, mid);
         sort(values, mid + 1, r);
+        if (values[mid] < values[mid + 1]) {
+            return;
+        }
         merge(values, l, mid, r);
+    }
+
+    private void sort1(int[] values) {
+        sort1(values, 0, values.length - 1);
+    }
+
+    private void sort1(int[] values, int left, int right) {
+        if (left >= right) {
+            return;
+        }
+        int mid = left + (right - left) / 2;
+        sort(values, left, mid);
+        sort(values, mid + 1, right);
+        merge1(values, left, mid, right);
+    }
+
+    private void merge1(int[] values, int left, int mid, int right) {
+        int[] tmp = new int[right - left + 1];
+
+        int index = 0;
+        //左半部分是从左区间开始
+        int leftIndex = left;
+        //右半部分是从右区间开始
+        int rightIndex = mid + 1;
+        while (leftIndex <= mid && rightIndex >= mid + 1) {
+            if (values[leftIndex] < values[rightIndex]) {
+                tmp[index++] = values[leftIndex++];
+            } else {
+                tmp[index++] = values[rightIndex++];
+            }
+        }
+        while (leftIndex <= mid) {
+            tmp[index++] = values[leftIndex++];
+        }
+        while (rightIndex >= mid + 1) {
+            tmp[index++] = values[rightIndex++];
+        }
+        for (int i = 0; i < tmp.length; i++) {
+            values[left + i] = tmp[i];
+        }
     }
 
     /**
@@ -75,6 +118,17 @@ public class MergeSort {
         //从临时空间合并到数组中
         for (int i = 0; i < tmp.length; i++) {
             values[l + i] = tmp[i];
+        }
+    }
+
+    /**
+     * 使用for循环来实现归并排序
+     */
+    private void forLoop(int[] values) {
+        for (int i = 0; i < values.length - 1; i += i) {
+            for (int j = 0; j + i < values.length - 1; j += i + i) {
+                merge(values, j, j + i - 1, Math.min(j + i + i - 1, values.length - 1));
+            }
         }
     }
 }
