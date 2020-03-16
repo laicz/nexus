@@ -27,11 +27,11 @@ public class ClusterDemo {
     public void connect() {
 
         //remote gremlin server
-        cluster = remote();
+//        cluster = remote();
 //        cluster = Cluster.open(configuration);
 
         //local gremlin server
-//        cluster = Cluster.open();
+        cluster = Cluster.open();
     }
 
     private Cluster remote() {
@@ -296,7 +296,7 @@ public class ClusterDemo {
     @Test
     public void ioLoad() throws ExecutionException, InterruptedException {
         Client client = cluster.connect();
-        List<Result> results = client.submit("strategy = ElementIdStrategy.build().create();g = graph.traversal().withStrategies(strategy);g.io('/Users/haizhi/Desktop/gremlin_big_data.json').read().iterate()").all().get();
+        List<Result> results = client.submit("strategy = ElementIdStrategy.build().create();g = graph.traversal().withStrategies(strategy);g.io('/Users/haizhi/Desktop/wCCLfhVx.json').read().iterate()").all().get();
         print(results);
     }
 

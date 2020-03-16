@@ -8,6 +8,10 @@ import java.util.ServiceLoader;
  */
 public class SPIServiceTest {
 
+    /**
+     * 通过使用ServiceLoader.load()的方式能够将数据加载入
+     * @param args
+     */
     public static void main(String[] args) {
         ServiceLoader<SPIService> serviceLoaders = ServiceLoader.load(SPIService.class);
 
