@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<modules>
+    <module>
+        <name>this is first module</name>
+        <value>this is first value</value>
+    </module>
+
+    <module>
+        <name>this is second module</name>
+        <value>this is second value</value>
+    </module>
+
+</modules>

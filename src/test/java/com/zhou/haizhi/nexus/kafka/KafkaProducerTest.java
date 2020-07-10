@@ -19,7 +19,7 @@ import java.util.concurrent.TimeUnit;
  * Create by zhoumingbing on 2020-01-04
  */
 public class KafkaProducerTest {
-    private static final String TOPIC_TEST = "test1";
+    private static final String TOPIC_TEST = "test";
     private KafkaProducer<String, String> kafkaProducer;
 
     @Before

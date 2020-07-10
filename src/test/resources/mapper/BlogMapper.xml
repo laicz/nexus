@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhou.haizhi.nexus.mybatis.BlobMapper">
+    <resultMap type="com.zhou.haizhi.nexus.mybatis.Blob" id="blobMap">
+        <id column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="remark" property="remark"/>
+    </resultMap>
+
+    <select id="findOne" resultMap="blobMap">
+        select *
+        from users
+    </select>
+    <insert id="insert">
+        insert into users (id, name, remark)
+        values (#{id}, #{name}, #{remark})
+    </insert>
+
+</mapper>

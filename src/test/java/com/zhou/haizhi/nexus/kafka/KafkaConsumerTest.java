@@ -13,7 +13,7 @@ import java.util.concurrent.TimeUnit;
  * Create by zhoumingbing on 2020-01-04
  */
 public class KafkaConsumerTest {
-    private static final String TOPIC_TEST = "test1";
+    private static final String TOPIC_TEST = "test";
     private KafkaConsumer<String, String> kafkaConsumer;
 
     @Before
